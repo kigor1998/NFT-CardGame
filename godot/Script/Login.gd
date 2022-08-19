@@ -21,8 +21,8 @@ func _ready():
 	if OS.has_feature("JavaScript"):
 		# Initialize the Moralis SDK
 		var options = JavaScript.create_object("Object")
-		options.serverUrl = server_url
-		options.appId = app_id
+		options.serverUrl = "https://oqmcxyygua1p.usemoralis.com:2053/server"
+		options.appId = "FjTt8NbCbsEmJklOY0D2ErwU5hhOkkPSZlQUcEDm"
 
 		moralis.start(options)
 		

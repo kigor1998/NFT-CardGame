@@ -1,6 +1,6 @@
 extends Node2D
-export (String) var server_url = ""
-export (String) var app_id = ""
+export (String) var server_url = "https://oqmcxyygua1p.usemoralis.com:2053/server"
+export (String) var app_id = "FjTt8NbCbsEmJklOY0D2ErwU5hhOkkPSZlQUcEDm"
 
 var moralis = JavaScript.get_interface("Moralis")
 var myNFT = []
