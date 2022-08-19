@@ -132,6 +132,7 @@ const Marketplace = () => {
                     {[...Array(listRarity.length - index)].map((_, index) => {
                       return (
                         <svg
+                          key={index}
                           className="w-5 h-5 text-yellow-400"
                           fill="currentColor"
                           viewBox="0 0 20 20"
@@ -144,6 +145,7 @@ const Marketplace = () => {
                     {[...Array(index)].map((_, index) => {
                       return (
                         <svg
+                          key={index}
                           className="w-5 h-5 text-gray-300 dark:text-gray-500"
                           fill="currentColor"
                           viewBox="0 0 20 20"

@@ -74,6 +74,7 @@ const SellCardComponent = (props: any) => {
         {[...Array(returnRarity(data))].map((_, index) => {
           return (
             <svg
+              key={index}
               className="w-7 h-7 text-yellow-400"
               fill="currentColor"
               viewBox="0 0 20 20"
@@ -86,6 +87,7 @@ const SellCardComponent = (props: any) => {
         {[...Array(returnRarityReverse(data))].map((_, index) => {
           return (
             <svg
+              key={index}
               className="w-7 h-7 text-gray-300 dark:text-gray-500"
               fill="currentColor"
               viewBox="0 0 20 20"

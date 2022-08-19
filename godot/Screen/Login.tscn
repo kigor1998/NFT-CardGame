@@ -9,8 +9,8 @@
 
 [node name="Login" type="Node2D"]
 script = ExtResource( 1 )
-server_url = "https://3bfvfqdop06y.usemoralis.com:2053/server"
-app_id = "F67nhhKSaGYL5v7QL0guzStZF3Bmk1kVkhzqpkux"
+server_url = "https://oqmcxyygua1p.usemoralis.com:2053/server"
+app_id = "FjTt8NbCbsEmJklOY0D2ErwU5hhOkkPSZlQUcEDm"
 
 [node name="Control" type="Control" parent="."]
 margin_right = 1020.0

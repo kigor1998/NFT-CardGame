@@ -1,6 +1,6 @@
 extends Node2D
 const KEY := "defaultkey"
-onready var client := Nakama.create_client(KEY, "127.0.0.1", 7350, "http")
+onready var client := Nakama.create_client(KEY, "nakama.astral-geeks.com", 7350, "https")
 var session : NakamaSession
 onready var socket := Nakama.create_socket_from(client)
 var match_id
@@ -64,11 +64,11 @@ func _on_matchmaker_matched(p_matched : NakamaRTAPI.MatchmakerMatched):
 	var game_resource = load("res://Screen/MainGame.tscn")
 	var game = game_resource.instance()
 	get_parent().add_child(game)
-	
+
 
 func _on_match_state(p_state : NakamaRTAPI.MatchData):
 	print("Received match state with opcode %s" % [p_state.op_code])
-	match p_state.op_code: 
+	match p_state.op_code:
 		0: #randomBoxEnemyCallBack
 			get_parent().get_node("MainGame").get_node("RandomBox").enemySelectd(int(p_state.data));
 		1: #enemy count card number
@@ -90,7 +90,7 @@ func _on_match_state(p_state : NakamaRTAPI.MatchData):
 
 func _sendStateData(code,data):
 	socket.send_match_state_async(match_id, code, data)
-	
+
 func _leaveMath():
 	yield(socket.leave_match_async(match_id), "completed")
 	match_id = "";

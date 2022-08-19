@@ -11,7 +11,7 @@ func _no_set(_p):
 func _no_get():
 	return null
 
-# The host address of the server. Defaults to "127.0.0.1".
+# The host address of the server. Defaults to "nakama.astral-geeks.com".
 var host : String setget _no_set
 
 # The port number of the server. Defaults to 7350.
@@ -77,16 +77,14 @@ func _init(p_adapter : NakamaHTTPAdapter,
 		p_server_key : String,
 		p_scheme : String,
 		p_host : String,
-		p_port : int,
 		p_timeout : int):
 
 	server_key = p_server_key
 	scheme = p_scheme
 	host = p_host
-	port = p_port
 	timeout = p_timeout
 	logger = p_adapter.logger
-	_api_client = NakamaAPI.ApiClient.new(scheme + "://" + host + ":" + str(port), p_adapter, NakamaAPI, server_key, p_timeout)
+	_api_client = NakamaAPI.ApiClient.new(scheme + "://" + host, p_adapter, NakamaAPI, server_key, p_timeout)
 
 # Restore a session from the auth token.
 # A `null` or empty authentication token will return `null`.
@@ -96,8 +94,8 @@ static func restore_session(auth_token : String):
 	return NakamaSession.new(auth_token, false)
 
 func _to_string():
-	return "Client(Host='%s', Port=%s, Scheme='%s', ServerKey='%s', Timeout=%s)" % [
-		host, port, scheme, server_key, timeout
+	return "Client(Host='%s', Scheme='%s', ServerKey='%s', Timeout=%s)" % [
+		host, scheme, server_key, timeout
 	]
 
 func _parse_auth(p_session) -> NakamaSession:
@@ -509,7 +507,7 @@ func link_steam_async(p_session : NakamaSession, p_token : String, p_sync : bool
 			}).serialize(),
 			"sync": p_sync
 		}
-		
+
 	))
 
 # List messages from a chat channel.

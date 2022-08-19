@@ -7,7 +7,7 @@ const Navbar = () => {
   const [auth, setAuth] = useState("");
   const ownerAddress = addressData.owner; // * nft contractaddress
   useEffect(() => {
-    getAuth();
+    getAuth().then(r => {});
     //@ts-ignore
     window.ethereum.on("accountsChanged", function (accounts) {
       setAuth(accounts[0]);
