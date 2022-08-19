@@ -1,6 +1,5 @@
 import Layout from "@/components/Layout";
 import Link from "next/link";
-import Image from "next/image";
 
 const Home = () => {
   const Nav = [
@@ -49,7 +48,7 @@ const Home = () => {
             <div className="mt-2">
               <Link href="/marketplace">
                 <a className="relative w-full">
-                  <Image src="/images/button.png" width={100} alt="" />
+                  <img src="/images/button.png" width={100} alt="" />
                   <p className="absolute top-1.5 w-full ml-6 text-white whitespace-nowrap">
                     LOG IN
                   </p>
@@ -78,13 +77,13 @@ const Home = () => {
                   <div className="absolute top-4 ml-10 text-white text-4xl">
                     START
                   </div>
-                  <Image width={200} src="/images/button2.png" alt=""/>
+                  <img width={200} src="/images/button2.png" />
                 </a>
               </Link>
             </div>
           </div>
         </div>
-        <Image
+        <img
           width={"100%"}
           className="m-auto h-screen w-full object-cover overflow-y-hidden"
           src="https://www.teahub.io/photos/full/361-3611215_pixel-art.jpg"

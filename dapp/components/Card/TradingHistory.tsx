@@ -7,7 +7,7 @@ const TradingHistory = (props: any) => {
   const [history, setHistory]: any = useState([]);
 
   useEffect(() => {
-    getHistory().then(r => {});
+    getHistory();
   }, []);
 
   const getHistory = async () => {
