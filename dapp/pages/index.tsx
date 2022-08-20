@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import Link from "next/link";
+import Image from "next/Image";
 
 const Home = () => {
   const Nav = [
@@ -16,8 +17,8 @@ const Home = () => {
       href: "/marketplace"
     },
     {
-      name: "Github",
-      href: "https://github.com/kai63001/wildcard-game"
+      name: "Lending",
+      href: "https://astral-geeks.com"
     }
   ];
   return (
@@ -83,8 +84,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <img
+        <Image
           width={"100%"}
+          height={"100%"}
           className="m-auto h-screen w-full object-cover overflow-y-hidden"
           src="https://www.teahub.io/photos/full/361-3611215_pixel-art.jpg"
           alt=""

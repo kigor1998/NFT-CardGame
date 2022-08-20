@@ -9,38 +9,7 @@ import Image from "next/image";
 const UploadPage = () => {
   const [mining, setMining] = useState(false);
 
-  const NFTData = [
-    {
-      image:
-        "https://ipfs.infura.io/ipfs/QmWAJZnCdWxN17GW4Wi1HA2NFhGx8TATzMxL1XNUZUGitr",
-      data: "https://ipfs.infura.io/ipfs/QmPfaA5bQn6uUwU5pDtBS44pFxZb5ECcRehG858hnRo1i8",
-      id: 1,
-    },
-    {
-      image:
-        "https://ipfs.infura.io/ipfs/QmYocvY7GvF84Ph2HYK6U26LCdzjmcCZ849EzFbYJdNR7E",
-      data: "https://ipfs.infura.io/ipfs/QmNushQVe6o6vBLscoFnfrRd5ek4vt8XvyZJKmumZ5MsVc",
-      id: 2,
-    },
-    {
-      image:
-        "https://ipfs.infura.io/ipfs/QmdiKyNCL2rkoTqpepzJK6n94iiF8j4NwUu9Uefsn2mwtf",
-      data: "https://ipfs.infura.io/ipfs/QmQs2o1wtbG35i1z2sCdV1QPAmBk34PwEKccJXSoS5QNpy",
-      id: 3,
-    },
-    {
-      image:
-        "https://ipfs.infura.io/ipfs/QmQNnYJzxUEAxbRwKHsN16nT6PjhjTSTxag9PT8Pde9nHo",
-      data: "https://ipfs.infura.io/ipfs/QmQEKbmAu9JB5LMjs7MdfyrmVH7bwCcZDDdVWmoNGY7RhX",
-      id: 4,
-    },
-    {
-      image:
-        "https://ipfs.infura.io/ipfs/QmXh3DC6BxTiY7NiUmrQNjiyZz5265VkFM8RF7bKFuGbNe",
-      data: "https://ipfs.infura.io/ipfs/QmTkcz4AAWCNQYvwm7qgtAr5BBgiykE9fmyCRL7ErGcHv3",
-      id: 5,
-    },
-  ];
+  const NFTData:any = [];
 
   const ipfs = create({
     host: "ipfs.infura.io",
@@ -60,17 +29,16 @@ const UploadPage = () => {
       name: e.target.name.value,
       rarity: e.target.rarity.value,
       id: e.target.id.value,
-      image: `https://ipfs.infura.io/ipfs/${image}`,
+      image: `https://astralgeeks.infura-ipfs.io/ipfs/${image}`,
     };
     // push data to ipfs
     const res = await addFile({
       path: "/",
       content: Buffer.from(JSON.stringify(data)),
     });
-    console.log(`https://ipfs.infura.io/ipfs/${res}`);
-    await mint([`https://ipfs.infura.io/ipfs/${res}`]).then((_data) => {
+
+    await mint([`https://astralgeeks.infura-ipfs.io/ipfs/${res}`]).then((_data) => {
       setMining(false);
-      //clear form
       e.target.reset();
     });
   };
