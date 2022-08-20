@@ -42,18 +42,20 @@ func create_socket_adapter() -> NakamaSocketAdapter:
 
 func create_client(p_server_key : String,
 		p_host : String = DEFAULT_HOST,
+		p_port : int = DEFAULT_PORT,
 		p_scheme : String = DEFAULT_CLIENT_SCHEME,
 		p_timeout : int = DEFAULT_TIMEOUT,
 		p_log_level : int = DEFAULT_LOG_LEVEL) -> NakamaClient:
 	logger._level = p_log_level
-	return NakamaClient.new(get_client_adapter(), p_server_key, p_scheme, p_host, p_timeout)
+	return NakamaClient.new(get_client_adapter(), p_server_key, p_scheme, p_host, p_port, p_timeout)
 
 func create_socket(p_host : String = DEFAULT_HOST,
+		p_port : int = DEFAULT_PORT,
 		p_scheme : String = DEFAULT_SOCKET_SCHEME) -> NakamaSocket:
-	return NakamaSocket.new(create_socket_adapter(), p_host, p_scheme, true)
+	return NakamaSocket.new(create_socket_adapter(), p_host, p_port, p_scheme, true)
 
 func create_socket_from(p_client : NakamaClient) -> NakamaSocket:
 	var scheme = "ws"
 	if p_client.scheme == "https":
 		scheme = "wss"
-	return NakamaSocket.new(create_socket_adapter(), p_client.host, scheme, true)
+	return NakamaSocket.new(create_socket_adapter(), p_client.host, p_client.port, scheme, true)

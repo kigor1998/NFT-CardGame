@@ -63,12 +63,16 @@ func _resume_conn(p_err : int):
 
 func _init(p_adapter : NakamaSocketAdapter,
 		p_host : String,
+		p_port : int,
 		p_scheme : String,
 		p_free_adapter : bool = false):
 	logger = p_adapter.logger
 	_adapter = p_adapter
 	_weak_ref = weakref(_adapter)
-	_base_uri = "%s://%s%s" % [p_scheme, p_host]
+	var port = ""
+	if (p_scheme == "ws" and p_port != 80) or (p_scheme == "wss" and p_port != 443):
+		port = ":%d" % p_port
+	_base_uri = "%s://%s%s" % [p_scheme, p_host, port]
 	_free_adapter = p_free_adapter
 	_adapter.connect("closed", self, "_closed")
 	_adapter.connect("connected", self, "_connected")

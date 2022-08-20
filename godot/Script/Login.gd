@@ -25,28 +25,28 @@ func _ready():
 		options.appId = "FjTt8NbCbsEmJklOY0D2ErwU5hhOkkPSZlQUcEDm"
 
 		moralis.start(options)
-		
-	
+
+
 func login():
 	# Check if user already logged in
 	current_user = moralis.User.current()
-	
+
 	if !current_user:
 		moralis.authenticate().then(_callback_login)
 
-	
+
 func logout():
 	print(moralis)
 	moralis.User.logOut().then(_callback_logout)
 	current_user = null
-	
-	
+
+
 func _on_logged_in(args):
 	current_user = args[0]
 	#$Control/Label.text = "Logged in!\nETH Address: " + args[0].get("ethAddress")
 	get_tree().change_scene("res://Screen/Main.tscn")
-	
-	
+
+
 func _on_logged_out(args):
 	current_user = null
 	login()
