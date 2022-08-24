@@ -84,9 +84,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <Image
-          width={"100%"}
-          height={"100%"}
+        <img
           className="m-auto h-screen w-full object-cover overflow-y-hidden"
           src="https://www.teahub.io/photos/full/361-3611215_pixel-art.jpg"
           alt=""
